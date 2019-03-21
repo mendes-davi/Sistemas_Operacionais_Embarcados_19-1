@@ -154,6 +154,30 @@ int main(int argc, char const *argv[])
 
 7. Crie um código em C que conta a ocorrência de uma palavra-chave em um arquivo-texto, e escreve o resultado no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'busca_e_conta':
 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "bib_arqs.h"
+
+int main(int argc, char const *argv[])
+{
+	char *str = le_arq_texto((char *) argv[2]);
+	char *srch = (char *) argv[1];
+	int len = strlen(srch);
+	int count = 0;
+	char *where = str;
+
+	if (len)
+    while ((where = strstr(where, srch))) {
+        where += len;
+        count++;
+    }
+    printf("'%s' ocorre %d vezes no arquivo %s\n", argv[1],count,argv[2]);
+	return 0;
+}
+```
+
 ```bash
 $ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
 $ ./busca_e_conta Ola ola.txt
