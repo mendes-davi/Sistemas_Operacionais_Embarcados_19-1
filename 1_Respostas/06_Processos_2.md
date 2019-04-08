@@ -87,7 +87,7 @@ $ 26 27 28 29 30 31
 
 int main(int argc, char const *argv[])
 {
-	pid_t childPid[3];
+	pid_t childPid[argc];
 
 	for (int i = 0; i < argc-1; ++i)
 	{
